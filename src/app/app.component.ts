@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-root',
@@ -7,5 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     positions = ['โปรแกรมเมอร์', 'นักเคราะห์ระบบ', 'นักออกแบบ'];
-    constructor() { }
+    form: FormGroup;
+
+    constructor(private builder: FormBuilder) {
+        this.form = this.builder.group({
+            email: ['', [Validators.required, Validators.email]],
+            detail: ['', [Validators.required]],
+            position: ['', [Validators.required]]
+        });
+    }
+
+    // ตรวจสอบ Error Message
+    getErrors(formControl: FormControl, errorKey: string) {
+        return formControl.invalid
+            && formControl.touched
+            && errorKey in formControl.errors;
+    }
 }

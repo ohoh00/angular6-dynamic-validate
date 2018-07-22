@@ -5,25 +5,34 @@
             <h3 class="text-warning">Login Form</h3>
             <hr>
 
-            <form action="">
+            <form [formGroup]="form">
                 <div class="form-group">
                     <label for="">อีเมล์</label>
-                    <input type="text" class="form-control">
+                    <input formControlName="email" type="text" class="form-control">
+                    <app-validate for="email"></app-validate>
+                    <!-- <p *ngIf="getErrors(form.get('email'), 'required')" class="text-error">
+                        กรุณากรอกข้อมูล
+                    </p>
+                    <p *ngIf="getErrors(form.get('email'), 'email')" class="text-error">
+                        กรุณากรอกข้อมูลให้อยู่ในรูปแบบอีเมล์
+                    </p> -->
                 </div>
 
                 <div class="form-group">
                     <label for="">รายละเอียด</label>
-                    <textarea class="form-control" rows="2"></textarea>
+                    <textarea formControlName="detail" class="form-control" rows="2"></textarea>
+                    <app-validate for="detail"></app-validate>
                 </div>
 
                 <div class="form-group">
                     <label for="">ตำแหน่ง</label>
-                    <select class="form-control">
+                    <select formControlName="position" class="form-control">
                         <option value="">เลือกตำแน่ง</option>
                         <option [value]="item" *ngFor="let item of positions">
                             {{ item }}
                         </option>
                     </select>
+                    <app-validate for="position"></app-validate>
                 </div>
 
                 <div class="form-group mt-4">
