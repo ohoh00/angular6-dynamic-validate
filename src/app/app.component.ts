@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    positions = [
-        'โปรแกรมเมอร์',
-        'นักเคราะห์ระบบ',
-        'นักออกแบบ'
-    ];
+    positions = ['โปรแกรมเมอร์', 'นักเคราะห์ระบบ', 'นักออกแบบ'];
     constructor() { }
 }
