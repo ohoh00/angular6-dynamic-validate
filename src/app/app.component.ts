@@ -13,7 +13,7 @@ export class AppComponent {
     constructor(private builder: FormBuilder) {
         this.form = this.builder.group({
             email: ['', [Validators.required, Validators.email]],
-            detail: ['', [Validators.required]],
+            detail: ['', [Validators.required, Validators.maxLength(15)]],
             position: ['', [Validators.required]]
         });
     }

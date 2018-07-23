@@ -21,7 +21,14 @@ export class ValidateComponent {
             const control = formGroup.controls[this.for];
             if (control.invalid && control.touched) {
                 Object.keys(control.errors).forEach(key => {
-                    errorMessage = Messages[key] || 'กรุณากรอกข้อมูลให้ถูกต้อง !';
+                    switch (key) {
+                        case 'maxlength':
+                            errorMessage = Messages[key]
+                                .replace('{0}', control.errors[key].requiredLength);
+                            break;
+                        default:
+                            errorMessage = Messages[key] || 'กรุณากรอกข้อมูลให้ถูกต้อง !';
+                    }
                 });
             }
         }
@@ -31,5 +38,6 @@ export class ValidateComponent {
 
 const Messages = {
     required: 'กรุณากรอกข้อมูล',
-    email: 'กรุณากรอกข้อมูลในรูปแบบอีเมล์'
+    email: 'กรุณากรอกข้อมูลในรูปแบบอีเมล์',
+    maxlength: 'ห้ามกรอกข้อมูลเกิน {0} ตัวอักษร'
 };
