@@ -13,8 +13,8 @@ export class AppComponent {
     constructor() {
         this.form = new FormGroup({
             email: new FormControl('', Validators.required),
-            detail: new FormControl(''),
-            position: new FormControl(''),
+            detail: new FormControl('', Validators.required),
+            position: new FormControl('', Validators.required),
         });
     }
 
