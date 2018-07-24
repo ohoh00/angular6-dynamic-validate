@@ -8,13 +8,15 @@
                 <div class="form-group">
                     <label for="">อีเมล์</label>
                     <input type="text" class="form-control" formControlName="email">
-                    <p *ngIf="isError(form.controls['email'], 'required')" class="text-invalid">กรุณากรอกข้อมูล</p>
-                    <p *ngIf="isError(form.controls['email'], 'email')" class="text-invalid">กรุณากรอกเป็นอีเมล์</p>
+                    <app-validate [control]="form.controls['email']"></app-validate>
+                    <!-- <p *ngIf="isError(form.controls['email'], 'required')" class="text-invalid">กรุณากรอกข้อมูล</p>
+                    <p *ngIf="isError(form.controls['email'], 'email')" class="text-invalid">กรุณากรอกเป็นอีเมล์</p> -->
                 </div>
 
                 <div class="form-group">
                     <label>รายละเอียด</label>
                     <textarea class="form-control" formControlName="detail"></textarea>
+                    <app-validate [control]="form.controls['detail']"></app-validate>
                 </div>
 
                 <div class="form-group">
@@ -25,6 +27,7 @@
                         <option value="นักเคราะห์ระบบ"> นักเคราะห์ระบบ </option>
                         <option value="นักออกแบบ">นักออกแบบ </option>
                     </select>
+                    <app-validate [control]="form.controls['position']"></app-validate>
                 </div>
 
                 <div class="form-group mt-4">

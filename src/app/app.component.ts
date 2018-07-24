@@ -13,7 +13,7 @@ export class AppComponent {
     constructor() {
         this.form = new FormGroup({
             email: new FormControl('', [Validators.required, Validators.email]),
-            detail: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+            detail: new FormControl('', [Validators.required, Validators.maxLength(5)]),
             position: new FormControl('', Validators.required),
         });
     }
