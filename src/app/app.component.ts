@@ -12,8 +12,8 @@ export class AppComponent {
 
     constructor() {
         this.form = new FormGroup({
-            email: new FormControl('', Validators.required),
-            detail: new FormControl('', Validators.required),
+            email: new FormControl('', [Validators.required, Validators.email]),
+            detail: new FormControl('', [Validators.required, Validators.maxLength(15)]),
             position: new FormControl('', Validators.required),
         });
     }
@@ -23,5 +23,13 @@ export class AppComponent {
         if (this.form.valid) {
             console.log(this.form.value);
         }
+    }
+
+    // ตรวจสอบ Property error ของ FormControl
+    isError(control: FormControl, errorKey: string) {
+        if (control.invalid && control.touched) {
+            return errorKey in control.errors;
+        }
+        return false;
     }
 }

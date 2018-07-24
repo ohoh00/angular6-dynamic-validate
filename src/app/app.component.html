@@ -8,6 +8,8 @@
                 <div class="form-group">
                     <label for="">อีเมล์</label>
                     <input type="text" class="form-control" formControlName="email">
+                    <p *ngIf="isError(form.controls['email'], 'required')" class="text-invalid">กรุณากรอกข้อมูล</p>
+                    <p *ngIf="isError(form.controls['email'], 'email')" class="text-invalid">กรุณากรอกเป็นอีเมล์</p>
                 </div>
 
                 <div class="form-group">

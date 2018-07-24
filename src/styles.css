@@ -24,3 +24,11 @@ hr {
 .form-control.ng-invalid.ng-touched {
     border-color: #ffc107;
 }
+
+.text-invalid {
+    font-size: 0.85rem;
+    margin: 4px;
+    text-align: right;
+    color: #ffc107;
+    opacity: 0.9;
+}
